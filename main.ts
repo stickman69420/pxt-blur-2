@@ -4,9 +4,9 @@ let blurSize1 = 1
 let variable1 = scene.createRenderable(zLayerBlur1, (image1: Image, camera: scene.Camera) => {
     let screenClone = image1.clone()
     if (blurSize1 != 1) {
-        let tempImg = image.create(Math.ceil(160 / blurSize1), Math.ceil(120 / blurSize1))
-        helpers.imageBlit(tempImg, 0, 0, Math.ceil(160 / blurSize1), Math.ceil(120 / blurSize1), screenClone, 0, 0, 160, 120, true, false)
-        helpers.imageBlit(image1, (tempImg.width * blurSize1 - 160) / -2, (tempImg.height * blurSize1 - 120) / -2, tempImg.width * blurSize1, tempImg.height * blurSize1, tempImg, 0, 0, tempImg.width, tempImg.height, true, false)
+        let tempImg = image.create(Math.ceil(screen.screenWidth() / blurSize1), Math.ceil(screen.screenHeight() / blurSize1))
+        helpers.imageBlit(tempImg, 0, 0, Math.ceil(screen.screenWidth() / blurSize1), Math.ceil(screen.screenHeight() / blurSize1), screenClone, 0, 0, screen.screenWidth(), screen.screenHeight(), true, false)
+        helpers.imageBlit(image1, (tempImg.width * blurSize1 - screen.screenWidth()) / -2, (tempImg.height * blurSize1 - screen.screenHeight()) / -2, tempImg.width * blurSize1, tempImg.height * blurSize1, tempImg, 0, 0, tempImg.width, tempImg.height, true, false)
     }
 })
 //% color="#83de8a"
